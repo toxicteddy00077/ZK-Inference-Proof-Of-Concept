@@ -1,0 +1,26 @@
+syntax = "proto3";
+package fed;
+
+service ServerCoordinator {
+  rpc ProcessFinalLayers(IntermediateActivations) returns (InferenceResult);
+}
+
+message IntermediateActivations {
+  string session_id = 1;
+  string client_id = 2;
+  bytes activations = 3;
+  repeated int32 shape = 4;
+  bytes image_hash = 5;
+  bytes image_proof = 6;
+}
+
+message InferenceResult {
+  string session_id = 1;
+  string client_id = 2;
+  bytes result = 3;
+  repeated int32 result_shape = 4;
+  string error = 5;
+  float processing_time_ms = 6;
+  bytes server_proof = 7;
+  bytes result_hash = 8;
+}

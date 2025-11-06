@@ -1,0 +1,7 @@
+images/
+logs/
+src/
+
+**/target/
+Cargo.lock
+

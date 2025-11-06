@@ -1,0 +1,15 @@
+[package]
+name = "federated-gpt2"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = [
+    "client",
+    "server",
+]
+resolver="2"
+
+[dependencies]
+tonic = "0.6"
+prost = "0.7"
