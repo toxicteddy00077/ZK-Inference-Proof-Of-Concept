@@ -17,5 +17,7 @@ and sends back the ouput with another proof that the weights sent by the client 
 The client then recives the proof and the response, and is thus able to ascertain no malicious activity has taken place with the data.
 This way the server and client are able to maintain anonymity of data to some extent and preventing model reverse enginerring or extracing data for malicious party.
 
+### Summary
 This ZK-Inference proof of concept demonstrates privacy-preserving image classification by combining gRPC communication, Noir zero-knowledge proofs, and a split PyTorch EfficientNet model architecture. The system splits model execution between client and server, with the client processing initial layers and generating cryptographic proofs using nargo while the server handles final classification and returns encrypted results via gRPC, enabling verifiable computation without exposing raw image data.
+
 
