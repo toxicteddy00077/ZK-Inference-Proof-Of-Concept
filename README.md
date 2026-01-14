@@ -1,4 +1,4 @@
-### Secure split inference with ZK-SNARK based verification
+# Secure split inference with ZK-SNARK based verification
 This is a basic proof of concept for Split Inference that would enable clients to be able to obfuscate their inputs and run the first few lightweight layers of the target model on the client machine. Then using **gRPC**,
 we can send **AES-GCM**-encrypted weights to the server for complete inference. The final response can be sent back to the client for usage. All through this process, the actual inputs and related metadata are never
 revealed to the server.
@@ -19,5 +19,6 @@ This way the server and client are able to maintain anonymity of data to some ex
 
 ### Summary
 This ZK-Inference proof of concept demonstrates privacy-preserving image classification by combining gRPC communication, Noir zero-knowledge proofs, and a split PyTorch EfficientNet model architecture. The system splits model execution between client and server, with the client processing initial layers and generating cryptographic proofs using nargo while the server handles final classification and returns encrypted results via gRPC, enabling verifiable computation without exposing raw image data.
+
 
 
