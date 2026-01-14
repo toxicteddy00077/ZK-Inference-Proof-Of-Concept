@@ -6,19 +6,20 @@ revealed to the server.
 But the question arises how the server can enforce constraints on inputs if it has no knowledge of them, and also how does the client know that the server has performed a complete inference and not some malicious action?
 For this, we use lightweight ZK-Proofs. Written in **Noir** with Baretenberg backend, a basic infernece cycle is as follows:
 
-## STEP 1:
+## Step 1:
 Client gives input to model -> model runs first lightweight layers on client machine and encrypts the resulting weights
-## step 2:
+## Step 2:
 Client sends encrypted weights and a proof of valid inputs to the server with verification key using gRPC.
-## step 3: 
+## Step 3: 
 The server recives the weights and verifies the proof before proceeding. If the porrf is valid, I,e the input is of an accpetbale field, the server runs the remaining and compuataiontally intesive part of inference
 and sends back the ouput with another proof that the weights sent by the client were only used for inference.
-## step 4: 
+## Step 4: 
 The client then recives the proof and the response, and is thus able to ascertain no malicious activity has taken place with the data.
 This way the server and client are able to maintain anonymity of data to some extent and preventing model reverse enginerring or extracing data for malicious party.
 
 ### Summary
 This ZK-Inference proof of concept demonstrates privacy-preserving image classification by combining gRPC communication, Noir zero-knowledge proofs, and a split PyTorch EfficientNet model architecture. The system splits model execution between client and server, with the client processing initial layers and generating cryptographic proofs using nargo while the server handles final classification and returns encrypted results via gRPC, enabling verifiable computation without exposing raw image data.
+
 
 
 
